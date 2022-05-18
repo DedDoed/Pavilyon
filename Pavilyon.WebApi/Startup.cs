@@ -13,6 +13,7 @@ using Pavilyon.Application;
 using Pavilyon.Persistence;
 using Microsoft.Extensions.Configuration;
 using Pavilyon.WebApi.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Pavilyon.WebApi
 {
@@ -37,6 +38,17 @@ namespace Pavilyon.WebApi
                 });
             });
 
+            services.AddAuthentication(config =>
+            {
+                config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:44352/";
+                    options.Audience = "PavilyonWebAPI";
+                    options.RequireHttpsMetadata = false;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +63,8 @@ namespace Pavilyon.WebApi
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pavilyon.Application.Projects.Commands.CreateProject;
 using Pavilyon.Application.Projects.Commands.DeleteProject;
 using Pavilyon.Application.Projects.Commands.UpdateProject;
@@ -17,12 +18,15 @@ namespace Pavilyon.WebApi.Controllers
     {
 
         [HttpGet("GetAll")]
+        [Authorize]
         public async Task<ActionResult> GetAll([FromQuery] GetProjectListQuery query, CancellationToken cancellationToken)
         {
+            query.UserId = UserId;
             return Ok(await Mediator.Send(query, cancellationToken));
         }
 
         [HttpGet("Get")]
+        [Authorize]
         public async Task<ActionResult> Get([FromQuery] GetProjectDescriptionQuery query, CancellationToken cancellationToken)
         {
             query.UserId = UserId;
@@ -30,21 +34,27 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpPost("Create")]
+        [Authorize]
         public async Task<ActionResult> Create(CreateProjectCommand command, CancellationToken cancellationToken)
         {
+            command.CreatorId = UserId;
             return Ok(await Mediator.Send(command, cancellationToken));
         }
 
         [HttpPut("Update")]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateProjectCommand command, CancellationToken cancellationToken)
         {
+            command.CreatorId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }
 
         [HttpDelete("Delete")]
+        [Authorize]
         public async Task<IActionResult> Delete(DeleteProjectCommand command, CancellationToken cancellationToken)
         {
+            command.CreatorId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }
