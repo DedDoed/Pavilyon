@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Pavilyon.Domain
 {
-    public class Attachment
+    public class Tag
     {
         public Guid Id { get; set; }
-        public Project Project { get; set; }
-        public string Path { get; set; }
+        public List<Project> Projects { get; set; }
+        public string TagName { get; set; }
     }
 }

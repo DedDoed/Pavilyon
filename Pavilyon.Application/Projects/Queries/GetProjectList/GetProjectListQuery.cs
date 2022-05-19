@@ -24,11 +24,11 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectList
         public async Task<IList<ProjectLookupDto>> Handle(GetProjectListQuery request, CancellationToken cancellationToken)
         {
             var projectsQuery = await _dbContext.Projects
-                .Where(project => project.CreatorId == request.UserId)
                 .Select(project => new ProjectLookupDto
                 {
                     Id = project.Id,
-                    ProjectName = project.ProjectName
+                    ProjectName = project.ProjectName,
+                    ShortDescription = project.ShortDescription
                 })
                 .ToListAsync(cancellationToken);
             return projectsQuery;

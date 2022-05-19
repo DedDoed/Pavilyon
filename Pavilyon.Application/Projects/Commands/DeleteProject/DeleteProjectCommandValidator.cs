@@ -9,7 +9,7 @@ namespace Pavilyon.Application.Projects.Commands.DeleteProject
     {
         public DeleteProjectCommandValidator()
         {
-            RuleFor(deleteProjectCommand => deleteProjectCommand.CreatorId).NotEqual(Guid.Empty);
+            RuleFor(deleteProjectCommand => deleteProjectCommand.UserId).NotEqual(Guid.Empty);
             RuleFor(deleteProjectCommand => deleteProjectCommand.Id).NotEqual(Guid.Empty);
         }
     }

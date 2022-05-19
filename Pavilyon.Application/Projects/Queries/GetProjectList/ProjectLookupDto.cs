@@ -9,5 +9,6 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectList
     {
         public Guid Id { get; set; }
         public string ProjectName { get; set; }
+        public string ShortDescription { get; set; }
     }
 }

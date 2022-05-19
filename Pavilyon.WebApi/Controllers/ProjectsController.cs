@@ -18,10 +18,8 @@ namespace Pavilyon.WebApi.Controllers
     {
 
         [HttpGet("GetAll")]
-        [Authorize]
         public async Task<ActionResult> GetAll([FromQuery] GetProjectListQuery query, CancellationToken cancellationToken)
         {
-            query.UserId = UserId;
             return Ok(await Mediator.Send(query, cancellationToken));
         }
 
@@ -37,7 +35,7 @@ namespace Pavilyon.WebApi.Controllers
         [Authorize]
         public async Task<ActionResult> Create(CreateProjectCommand command, CancellationToken cancellationToken)
         {
-            command.CreatorId = UserId;
+            command.UserId = UserId;
             return Ok(await Mediator.Send(command, cancellationToken));
         }
 
@@ -45,7 +43,7 @@ namespace Pavilyon.WebApi.Controllers
         [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateProjectCommand command, CancellationToken cancellationToken)
         {
-            command.CreatorId = UserId;
+            command.UserId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }
@@ -54,7 +52,7 @@ namespace Pavilyon.WebApi.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(DeleteProjectCommand command, CancellationToken cancellationToken)
         {
-            command.CreatorId = UserId;
+            command.UserId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }

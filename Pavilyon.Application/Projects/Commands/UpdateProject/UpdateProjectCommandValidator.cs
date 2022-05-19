@@ -9,7 +9,7 @@ namespace Pavilyon.Application.Projects.Commands.UpdateProject
     {
         public UpdateProjectCommandValidator()
         {
-            RuleFor(updateProjectCommand => updateProjectCommand.CreatorId).NotEqual(Guid.Empty);
+            RuleFor(updateProjectCommand => updateProjectCommand.UserId).NotEqual(Guid.Empty);
             RuleFor(updateProjectCommand => updateProjectCommand.Id).NotEqual(Guid.Empty);
             RuleFor(updateProjectCommand => updateProjectCommand.ProjectName).NotEmpty().MaximumLength(50);
         }

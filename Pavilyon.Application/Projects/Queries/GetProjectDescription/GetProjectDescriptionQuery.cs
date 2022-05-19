@@ -25,20 +25,30 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectDescription
         public async Task<ProjectDescriptionDto> Handle(GetProjectDescriptionQuery request, CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Projects
+                .Include(project => project.Team)
+                .Include(project => project.Tags)
+                .Include(project => project.Stages)
+                .Include(project => project.Attachments)
                 .Where(project => project.Id == request.Id)
                 .Select(project => new ProjectDescriptionDto
                 {
                     Id = project.Id,
-                    ProjectName = project.ProjectName,
-                    CreatorId = project.CreatorId,
-                    Tags = project.Tags,
                     Attachments = project.Attachments,
+                    Stages = project.Stages,
+                    Contacts = project.Contacts,
+                    RequieredPersonal = project.RequieredPersonal,
+                    ProjectObjectives = project.ProjectObjectives,
+                    ProjectTargets = project.ProjectTargets,
                     Description = project.Description,
-                    ShortDescription = project.ShortDescription
+                    ProjectName = project.ProjectName,
+                    ShortDescription = project.ShortDescription,
+                    Tags = project.Tags,
+                    Team = project.Team
                 })
                 .FirstOrDefaultAsync();
+            var creator = entity.Team.Find(user => user.IsCreator);
 
-            if (entity == null || entity.CreatorId != request.UserId)
+            if (entity == null || creator.UserId != request.UserId)
             {
                 throw new NotFoundException(nameof(Project), request.Id);
             }
