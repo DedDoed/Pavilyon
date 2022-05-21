@@ -17,8 +17,8 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
     }
     class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, Guid>
     {
-        private readonly IProjectsDbContext _dbContext;
-        public CreateProjectCommandHandler(IProjectsDbContext dbContext)
+        private readonly IAppDbContext _dbContext;
+        public CreateProjectCommandHandler(IAppDbContext dbContext)
         {
             _dbContext = dbContext;
         }

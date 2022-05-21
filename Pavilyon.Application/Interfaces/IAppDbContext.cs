@@ -8,7 +8,7 @@ using Pavilyon.Domain;
 
 namespace Pavilyon.Application.Interfaces
 {
-    public interface IProjectsDbContext
+    public interface IAppDbContext
     {
         DbSet<Project> Projects { get; set; }
         DbSet<Attachment> Attachments { get; set; }

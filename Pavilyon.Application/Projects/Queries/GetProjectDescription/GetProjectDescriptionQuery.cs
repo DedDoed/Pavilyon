@@ -19,8 +19,8 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectDescription
     public class GetProjectDescriptionQueryHandler : IRequestHandler<GetProjectDescriptionQuery, ProjectDescriptionDto>
     {
         
-        private readonly IProjectsDbContext _dbContext;
-        public GetProjectDescriptionQueryHandler(IProjectsDbContext dbContext) =>
+        private readonly IAppDbContext _dbContext;
+        public GetProjectDescriptionQueryHandler(IAppDbContext dbContext) =>
             _dbContext = dbContext;
         public async Task<ProjectDescriptionDto> Handle(GetProjectDescriptionQuery request, CancellationToken cancellationToken)
         {

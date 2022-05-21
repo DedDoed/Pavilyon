@@ -29,8 +29,8 @@ namespace Pavilyon.Application.Projects.Commands.UpdateProject
     }
     public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand>
     {
-        private readonly IProjectsDbContext _dbContext;
-        public UpdateProjectCommandHandler(IProjectsDbContext dbContext) =>
+        private readonly IAppDbContext _dbContext;
+        public UpdateProjectCommandHandler(IAppDbContext dbContext) =>
             _dbContext = dbContext;
         public async Task<Unit> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
         {

@@ -22,7 +22,7 @@ namespace Pavilyon.Persistence
             {
                 options.UseMySql(connectionString, mySqlVersion, sql => { sql.MigrationsAssembly("Pavilyon.WebApi"); });
             });
-            services.AddScoped<IProjectsDbContext>(provider => provider.GetService<ProjectsDbContext>());
+            services.AddScoped<IAppDbContext>(provider => provider.GetService<ProjectsDbContext>());
             return services;
         }
     }

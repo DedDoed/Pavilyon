@@ -9,6 +9,7 @@ namespace Pavilyon.Domain
     {
         public Guid Id { get; set; }
         public Project Project { get; set; }
+        public Guid ProjectId { get; set; }
         public string StageName { get; set; }
         public Status StageStatus { get; set; }
         public DateTime StartDate { get; set; }

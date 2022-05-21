@@ -8,7 +8,7 @@ using Pavilyon.Persistence.EntityTypeConfiguration;
 
 namespace Pavilyon.Persistence
 {
-    public class ProjectsDbContext : DbContext, IProjectsDbContext
+    public class ProjectsDbContext : DbContext, IAppDbContext
     {
         public DbSet<Project> Projects { get; set; }
         public DbSet<Attachment> Attachments { get; set; }

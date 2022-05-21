@@ -20,8 +20,8 @@ namespace Pavilyon.Application.Projects.Commands.DeleteProject
     }
     public class DeleteProjectCommandHandler : IRequestHandler<DeleteProjectCommand>
     {
-        private readonly IProjectsDbContext _dbContext;
-        public DeleteProjectCommandHandler(IProjectsDbContext dbContext) =>
+        private readonly IAppDbContext _dbContext;
+        public DeleteProjectCommandHandler(IAppDbContext dbContext) =>
             _dbContext = dbContext;
         public async Task<Unit> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
         {

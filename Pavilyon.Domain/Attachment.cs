@@ -8,6 +8,7 @@ namespace Pavilyon.Domain
     {
         public Guid Id { get; set; }
         public Project Project { get; set; }
+        public Guid ProjectId { get; set; }
         public string Path { get; set; }
     }
 }

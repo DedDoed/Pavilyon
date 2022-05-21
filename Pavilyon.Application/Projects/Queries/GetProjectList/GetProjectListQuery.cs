@@ -17,9 +17,9 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectList
     }
     public class GetProjectListQueryHandler : IRequestHandler<GetProjectListQuery, IList<ProjectLookupDto>>
     {
-        private readonly IProjectsDbContext _dbContext;
+        private readonly IAppDbContext _dbContext;
 
-        public GetProjectListQueryHandler(IProjectsDbContext dbContext) => _dbContext = dbContext;
+        public GetProjectListQueryHandler(IAppDbContext dbContext) => _dbContext = dbContext;
 
         public async Task<IList<ProjectLookupDto>> Handle(GetProjectListQuery request, CancellationToken cancellationToken)
         {
