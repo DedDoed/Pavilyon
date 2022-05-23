@@ -30,6 +30,10 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
                 Id = Guid.NewGuid(),
                 ProjectName = request.ProjectName,
             };
+
+            await _dbContext.Projects.AddAsync(project, cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
+
             var projectMember = new ProjectMember()
             {
                 Id = Guid.NewGuid(),
@@ -37,7 +41,7 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
                 IsCreator = true,
                 ProjectId = project.Id
             };
-            await _dbContext.Projects.AddAsync(project, cancellationToken);
+            
             await _dbContext.ProjectMembers.AddAsync(projectMember, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return project.Id;
