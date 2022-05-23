@@ -12,7 +12,7 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
             RuleFor(createProjectCommand =>
                 createProjectCommand.ProjectName).NotEmpty().MaximumLength(50);
             RuleFor(createProjectCommand =>
-                createProjectCommand.UserId).NotEqual(Guid.Empty);
+                createProjectCommand.UserId).NotEqual(String.Empty);
         }
     }
 }
