@@ -24,7 +24,7 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpGet("Get")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Get([FromQuery] GetProjectDescriptionQuery query, CancellationToken cancellationToken)
         {
             query.UserId = UserId;
@@ -32,7 +32,7 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpPost("Create")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Create(CreateProjectCommand command, CancellationToken cancellationToken)
         {
             command.UserId = UserId;
@@ -40,7 +40,7 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateProjectCommand command, CancellationToken cancellationToken)
         {
             command.UserId = UserId;
@@ -49,7 +49,7 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpDelete("Delete")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Delete(DeleteProjectCommand command, CancellationToken cancellationToken)
         {
             command.UserId = UserId;
