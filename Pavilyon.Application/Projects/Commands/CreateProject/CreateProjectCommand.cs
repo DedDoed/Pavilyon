@@ -13,7 +13,7 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
     public class CreateProjectCommand : IRequest<Guid>
     {
         public string ProjectName { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
     }
     class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, Guid>
     {
@@ -33,7 +33,7 @@ namespace Pavilyon.Application.Projects.Commands.CreateProject
             var projectMember = new ProjectMember()
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.Parse(request.UserId),
+                UserId = request.UserId,
                 IsCreator = true,
                 ProjectId = project.Id
             };
