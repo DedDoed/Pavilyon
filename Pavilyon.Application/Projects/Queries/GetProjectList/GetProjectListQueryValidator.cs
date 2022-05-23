@@ -9,7 +9,6 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectList
     {
         public GetProjectListQueryValidator()
         {
-            RuleFor(getProjectListQuery => getProjectListQuery.UserId).NotEqual(Guid.Empty);
         }
     }
 }
