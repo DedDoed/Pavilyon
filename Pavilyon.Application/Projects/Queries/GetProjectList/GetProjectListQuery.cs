@@ -13,7 +13,6 @@ namespace Pavilyon.Application.Projects.Queries.GetProjectList
 {
     public class GetProjectListQuery : IRequest<IList<ProjectLookupDto>>
     {
-        public Guid UserId { get; set; }
     }
     public class GetProjectListQueryHandler : IRequestHandler<GetProjectListQuery, IList<ProjectLookupDto>>
     {
