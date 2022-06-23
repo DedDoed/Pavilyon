@@ -5,7 +5,6 @@ using Pavilyon.Application.Interfaces;
 using Pavilyon.Domain;
 using System;
 using System.Linq;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 

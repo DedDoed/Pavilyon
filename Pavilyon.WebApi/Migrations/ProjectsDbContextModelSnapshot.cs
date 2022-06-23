@@ -7,7 +7,7 @@ using Pavilyon.Persistence;
 
 namespace Pavilyon.WebApi.Migrations
 {
-    [DbContext(typeof(ProjectsDbContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class ProjectsDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

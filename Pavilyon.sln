@@ -9,15 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{55A549A6-506B-42AA-9D6F-1AA730F6B3E0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{92FDF949-67EA-4ADC-A064-101EF1887B8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pavilyon.Domain", "Pavilyon.Domain\Pavilyon.Domain.csproj", "{B124FFDE-B80C-4811-8A81-6EF9455CC868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavilyon.Domain", "Pavilyon.Domain\Pavilyon.Domain.csproj", "{B124FFDE-B80C-4811-8A81-6EF9455CC868}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pavilyon.Persistence", "Pavilyon.Persistence\Pavilyon.Persistence.csproj", "{9BD534D5-DAE5-492C-982C-601D5D9B7D68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavilyon.Persistence", "Pavilyon.Persistence\Pavilyon.Persistence.csproj", "{9BD534D5-DAE5-492C-982C-601D5D9B7D68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pavilyon.Application", "Pavilyon.Application\Pavilyon.Application.csproj", "{8B000C05-0A7B-4043-81D8-D5E202AFB130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavilyon.Application", "Pavilyon.Application\Pavilyon.Application.csproj", "{8B000C05-0A7B-4043-81D8-D5E202AFB130}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pavilyon.WebApi", "Pavilyon.WebApi\Pavilyon.WebApi.csproj", "{6FABAC67-3070-457B-8011-8D521C162B88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pavilyon.WebApi", "Pavilyon.WebApi\Pavilyon.WebApi.csproj", "{6FABAC67-3070-457B-8011-8D521C162B88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

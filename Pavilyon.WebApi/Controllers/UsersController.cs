@@ -13,10 +13,10 @@ namespace Pavilyon.WebApi.Controllers
     public class UsersController : BaseController
     {
         [HttpGet("GetMyData")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult> GetUserData([FromQuery] GetUserDataQuery query, CancellationToken cancellationToken)
         {
-            //query.UserId = UserId;
+            query.UserId = UserId;
             return Ok(await Mediator.Send(query, cancellationToken));
         }
     }

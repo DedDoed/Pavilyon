@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Pavilyon.Persistence;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pavilyon.WebApi
 {
@@ -22,7 +17,7 @@ namespace Pavilyon.WebApi
                 var serviceProvider = scope.ServiceProvider;
                 try
                 {
-                    var context = serviceProvider.GetRequiredService<ProjectsDbContext>();
+                    var context = serviceProvider.GetRequiredService<AppDbContext>();
                     DbInitializer.Initialize(context);
                 }
                 catch(Exception exception)

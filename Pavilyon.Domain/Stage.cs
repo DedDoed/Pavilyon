@@ -14,7 +14,7 @@ namespace Pavilyon.Domain
         public Status StageStatus { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
-        public List<Report> Reports { get; set; }
-        public List<ProjectMember> ProjectMembers { get; set; }
+        public List<Report> Reports { get; set; } = new List<Report>();
+        public List<ProjectMember> ProjectMembers { get; set; } = new List<ProjectMember>();
     }
 }

@@ -5,9 +5,6 @@ using Pavilyon.Application.Projects.Commands.DeleteProject;
 using Pavilyon.Application.Projects.Commands.UpdateProject;
 using Pavilyon.Application.Projects.Queries.GetProjectDescription;
 using Pavilyon.Application.Projects.Queries.GetProjectList;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,35 +21,35 @@ namespace Pavilyon.WebApi.Controllers
         }
 
         [HttpGet("Get")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult> Get([FromQuery] GetProjectDescriptionQuery query, CancellationToken cancellationToken)
         {
-            //query.UserId = UserId;
+            query.UserId = UserId;
             return Ok(await Mediator.Send(query, cancellationToken));
         }
 
         [HttpPost("Create")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult> Create(CreateProjectCommand command, CancellationToken cancellationToken)
         {
-            //command.UserId = UserId;
+            command.UserId = UserId;
             return Ok(await Mediator.Send(command, cancellationToken));
         }
 
         [HttpPut("Update")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateProjectCommand command, CancellationToken cancellationToken)
         {
-            //command.UserId = UserId;
+            command.UserId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }
 
         [HttpDelete("Delete")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Delete(DeleteProjectCommand command, CancellationToken cancellationToken)
         {
-            //command.UserId = UserId;
+            command.UserId = UserId;
             await Mediator.Send(command, cancellationToken);
             return NoContent();
         }

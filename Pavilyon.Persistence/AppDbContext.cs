@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Pavilyon.Application.Interfaces;
 using Pavilyon.Domain;
 using Pavilyon.Persistence.EntityTypeConfiguration;
 
 namespace Pavilyon.Persistence
 {
-    public class ProjectsDbContext : DbContext, IAppDbContext
+    public class AppDbContext : DbContext, IAppDbContext
     {
         public DbSet<Project> Projects { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
@@ -17,7 +14,7 @@ namespace Pavilyon.Persistence
         public DbSet<Stage> Stages { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
-        public ProjectsDbContext (DbContextOptions<ProjectsDbContext> options) : base(options) { }
+        public AppDbContext (DbContextOptions<AppDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new ProjectConfiguration());

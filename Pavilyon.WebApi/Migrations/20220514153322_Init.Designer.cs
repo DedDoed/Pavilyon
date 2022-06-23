@@ -8,7 +8,7 @@ using Pavilyon.Persistence;
 
 namespace Pavilyon.WebApi.Migrations
 {
-    [DbContext(typeof(ProjectsDbContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20220514153322_Init")]
     partial class Init
     {

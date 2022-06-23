@@ -15,6 +15,6 @@ namespace Pavilyon.Domain
         public string PhoneNumber { get; set; }
         public string Avatar { get; set; }
         public string AboutMe { get; set; }
-        public List<ProjectMember> ProjectMembers { get; set; }
+        public List<ProjectMember> ProjectMembers { get; set; } = new List<ProjectMember>();
     }
 }
